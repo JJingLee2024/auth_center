@@ -57,5 +57,13 @@ export const initialGlobalAuthConfig: AuthConfig[] = [
 ];
 
 export const initialGroupConfig: GroupConfig[] = [
-  { id: 'group001', module: '招募平台-Worky', codes: ['worky-postjob', 'worky-sync-data', 'worky-read-app'], name: 'Worky 完整授權套件' }
+  { 
+    id: 'group001', 
+    name: 'Worky 完整授權套件',
+    brandChannel: 'Worky.com',
+    productChannel: 'Worky',
+    module: '招募平台',
+    icon: '😊',
+    codes: ['worky-postjob', 'worky-sync-data', 'worky-read-app']
+  }
 ];

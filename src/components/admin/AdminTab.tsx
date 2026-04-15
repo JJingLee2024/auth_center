@@ -80,7 +80,15 @@ export const AdminTab: React.FC<AdminTabProps> = ({ config, setConfig, groups, s
               <span className="text-sm font-medium">前台 UI 群組配置：可將多個 Function Code 打包為一次性授權單位。</span>
             </div>
             <button 
-              onClick={() => setEditingGroup({ id: 'new', name: '', module: '', codes: [] })} 
+              onClick={() => setEditingGroup({ 
+                id: 'new', 
+                name: '', 
+                brandChannel: '', 
+                productChannel: '', 
+                module: '', 
+                icon: '😊', 
+                codes: [] 
+              })} 
               className="bg-purple-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-purple-700 flex items-center"
             >
               <Plus className="w-3.5 h-3.5 mr-1" /> 建立授權群組
@@ -91,12 +99,21 @@ export const AdminTab: React.FC<AdminTabProps> = ({ config, setConfig, groups, s
               <div key={group.id} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition-all">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
-                      <Package className="w-5 h-5" />
+                    <div className="w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl">
+                      {group.icon || <Package className="w-5 h-5" />}
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900">{group.name}</h4>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-widest">{group.module}</p>
+                      <div className="flex items-center space-x-2">
+                        <h4 className="font-bold text-gray-900">{group.name}</h4>
+                        {group.module && (
+                          <span className="px-1.5 py-0.5 bg-purple-50 text-purple-600 rounded text-[9px] font-bold uppercase tracking-wider">
+                            {group.module}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-gray-400 font-medium">
+                        {group.brandChannel} · {group.productChannel}
+                      </p>
                     </div>
                   </div>
                   <div className="flex space-x-2">

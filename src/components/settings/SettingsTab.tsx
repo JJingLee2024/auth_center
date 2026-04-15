@@ -43,17 +43,26 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
       <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md">
         <div className="p-5 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-14 h-14 bg-white border border-gray-100 rounded-xl flex items-center justify-center p-2 shadow-inner text-xl">😊</div>
+            <div className="w-14 h-14 bg-white border border-gray-100 rounded-xl flex items-center justify-center p-2 shadow-inner text-2xl">
+              {group.icon || '😊'}
+            </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h3 className="font-bold text-gray-800">Worky</h3>
+                <h3 className="font-bold text-gray-800">{group.name}</h3>
+                {group.module && (
+                  <span className="px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded text-[9px] font-bold uppercase tracking-wider">
+                    {group.module}
+                  </span>
+                )}
                 {isAuthorized && (
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700">
                     <div className="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5" /> 已連線
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-500">ABC 咖啡集團 (ABC-GROUP-99)</p>
+              <p className="text-sm text-gray-500">
+                {group.brandChannel} · {group.productChannel}
+              </p>
             </div>
           </div>
           

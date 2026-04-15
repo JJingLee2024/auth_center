@@ -19,9 +19,12 @@ export interface AuthConfig {
 
 export interface GroupConfig {
   id: string;
-  module: string;
-  codes: string[];
   name: string;
+  brandChannel: string;
+  productChannel: string;
+  module?: string;
+  icon?: string;
+  codes: string[];
 }
 
 export interface Customer {
